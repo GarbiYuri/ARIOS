@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Modelo em AR</title>
+    <script>
+        function checkPlatform() {
+            // Detecta se o usuário está no iOS
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            // Detecta se o WebXR está disponível
+            const isWebXRSupported = 'xr' in navigator;
+
+            if (isIOS) {
+                // Mostrar link para AR Quick Look no iOS (arquivo USDZ)
+                document.getElementById('arLink').style.display = 'block';
+                document.getElementById('webXRLink').style.display = 'none';
+            } else if (isWebXRSupported) {
+                // Mostrar link para WebXR em dispositivos suportados
+                document.getElementById('webXRLink').style.display = 'block';
+                document.getElementById('arLink').style.display = 'none';
+            } else {
+                // Caso o dispositivo não seja iOS nem tenha suporte a WebXR
+                document.getElementById('arLink').style.display = 'none';
+                document.getElementById('webXRLink').style.display = 'none';
+            }
+        }
+
+        window.onload = checkPlatform;
+    </script>
+</head>
+<body>
+    <h1>Veja o modelo em Realidade Aumentada</h1>
+
+    <!-- Link para AR Quick Look no iOS -->
+    <a href="modelo.usdz" rel="ar" id="arLink" style="display:none;">
+        <button>Ver em AR (iOS)</button>
+    </a>
+
+    <!-- Link para WebXR em dispositivos que não são iOS -->
+    <a href="#" id="webXRLink" style="display:none;">
+        <button>Dispositivo não é IOS</button>
+    </a>
+
+</body>
+</html>
