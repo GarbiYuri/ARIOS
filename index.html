@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Modelo em AR</title>
+</head>
+<body>
+    <h1>Veja o modelo em Realidade Aumentada</h1>
+
+    <!-- Link para AR Quick Look no iOS -->
+    <a href="modelo.usdz" rel="ar" id="arLink" style="display:none;">
+        <button>Ver em AR (iOS)</button>
+    </a>
+
+    <!-- Link para WebXR em dispositivos que não são iOS -->
+    <a href="#" id="webXRLink" style="display:none;">
+        <button>Dispositivo não é IOS</button>
+    </a>
     <script>
         function checkPlatform() {
             // Detecta se o usuário está no iOS
@@ -29,19 +42,5 @@
 
         window.onload = checkPlatform;
     </script>
-</head>
-<body>
-    <h1>Veja o modelo em Realidade Aumentada</h1>
-
-    <!-- Link para AR Quick Look no iOS -->
-    <a href="modelo.usdz" rel="ar" id="arLink" style="display:none;">
-        <button>Ver em AR (iOS)</button>
-    </a>
-
-    <!-- Link para WebXR em dispositivos que não são iOS -->
-    <a href="#" id="webXRLink" style="display:none;">
-        <button>Dispositivo não é IOS</button>
-    </a>
-
 </body>
 </html>
